@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Cal</title>
+</head>
+<body>
+    <div></div>
+    <form>
+        <label for=”weight-input”>Тегло</label>
+        <input name=”weight-input” type="number" min="0" max="200" placeholder=”0”>
+        кг
+    </form>
+    
+    <div>
+        <div>
+            <label for=”drug-input”>Медикамент</label>
+            <input id="searchDrug" type="search" placeholder="">
+        </div>
+        <div style="position: relative;">
+            <div id="searchDrug--dropdown"></div>
+        </div>
+    </div>
+
+    <div id="chosen-drugs">
+
+    </div>
+
+
+    <button class="calculate-btn">Изчисли</button>
+
+
+
+    <script src="./drug.collection.js"></script>
+    <script src="./searchdrug.component.js"></script>
+</body>
+</html>
