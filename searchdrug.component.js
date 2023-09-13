@@ -1,5 +1,5 @@
-const searchDrugInput  = document.getElementById("searchDrug");
-const drugDropdown     = document.getElementById("searchDrug--dropdown");
+const searchDrugInput   = document.getElementById("searchDrug");
+const drugDropdown      = document.getElementById("searchDrug--dropdown");
 
 document.getElementById("searchDrug").addEventListener('keydown', () => {
     populateDropdown();
