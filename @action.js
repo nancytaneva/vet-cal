@@ -15,39 +15,40 @@ function processOpenDrug(chosenDrugIndex) {
 
 
     // PET WEIGHT
-    const petWeight         = document.querySelector("input[name='weight-input']").value;
+    let petWeight           = document.getElementById("weight-input").value;
     const petWeight_unit    = document.getElementById("weight-input-unit").value;
 
     if (petWeight_unit === "kilogram") {
         petWeight *= 1000;
     }
-    console.log(`petWeight: ${petWeight}`)
+
+    console.log(`petWeight: ${petWeight} gr`)
 
     // DRUG INFO
     const drug_concentration            = drugCollection[chosenDrugIndex].drugConcentration;
     const drug_concentration_decorator  = drugCollection[chosenDrugIndex].drugConcentrationDecorator;
 
-    if (drug_concentration_decorator === "mg_ml") {
+     if (drug_concentration_decorator === "mg_ml") {
 
     }
 
-    if (drug_concentration_decorator === "mg_tabl") {
+    else if (drug_concentration_decorator === "mg_tabl") {
 
     }
 
-    if (drug_concentration_decorator === "ml") {
+    else if (drug_concentration_decorator === "ml") {
 
     }
 
-    if (drug_concentration_decorator === "same") {
+    else if (drug_concentration_decorator === "same") {
 
     }
 
-    if (drug_concentration_decorator === "mg_caps") {
+    else if (drug_concentration_decorator === "mg_caps") {
 
     }
 
-    if (drug_concentration_decorator === "µg_ml") {
+    else if (drug_concentration_decorator === "µg_ml") {
 
     }
 
