@@ -1807,7 +1807,7 @@ const drugCollection = [
           "activeSubstanceDose": [
             1
           ],
-          "activeSubstanceDoseDecorator": "same",
+          "activeSubstanceDoseDecorator": "",
           "applicationMethod": "Засегнатите участъци се намазват с шпатула 2-3 пъти дневно до пълно оздравяване."
         }
       }

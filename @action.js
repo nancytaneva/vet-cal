@@ -116,27 +116,77 @@ function processOpenDrug(chosenDrugIndex) {
 
     if (active_substance_dose.length === 2) {
         // Calculate both doses when there are two values in activeSubstanceDose.
-        const lowest_dose  = active_substance_dose[0] * parseInt(petWeight);
-        const highest_dose = active_substance_dose[1] * parseInt(petWeight);
-        active_substance_needed.push(lowest_dose, highest_dose);
-        active_substance_needed_string = `Dose 1: ${lowest_dose} Dose 2: ${highest_dose}`;
-
-
+        const as_lowest_dose  = active_substance_dose[0] * parseInt(petWeight);
+        const as_highest_dose = active_substance_dose[1] * parseInt(petWeight);
+        active_substance_needed.push(as_lowest_dose, as_highest_dose);
+        active_substance_needed_string = `Dose 1: ${as_lowest_dose} Dose 2: ${as_highest_dose}`;
 
     } else if (active_substance_dose.length === 1) {
         // Calculate one dose when there is only one value in activeSubstanceDose.
-        const dose = active_substance_dose[0] * parseInt(petWeight);
-        active_substance_needed.push(dose);
-        active_substance_needed_string = `Dose: ${dose}`;
-
-        
-
+        const as_dose = active_substance_dose[0] * parseInt(petWeight);
+        active_substance_needed.push(as_dose);
+        active_substance_needed_string = `Dose: ${as_dose}`;
 
     } else {
         active_substance_needed_string = "Няма дозировка!";
     }
 
     console.log(`active_substance_needed: ${active_substance_needed_string}`);
+
+
+    // CALCULATING Medication needed:
+    // Medication needed = Active substance needed/ drug_concentration
+    // АКО drug_concentration_decorator === "mg_ml",    то active_substance_dose_decorator е:
+    //    - mg_kg;
+    //    - g;
+    //    - ml;
+
+    // АКО drug_concentration_decorator === "µg_ml",    то active_substance_dose_decorator е:
+    //    - µg_kg;
+
+    // АКО drug_concentration_decorator === "ml",       то active_substance_dose_decorator е:
+    //    - ml_kg;
+
+    // АКО drug_concentration_decorator === "mg_tabl",  то active_substance_dose_decorator е:
+    //    - mg_kg;
+    //    - tabl;
+    //    - µg_kg;
+
+    // АКО drug_concentration_decorator === "mg_caps",  то active_substance_dose_decorator е:
+    //    - mg_kg;
+
+
+
+    if (active_substance_dose_decorator == "g") {
+        active_substance_dose_decorator *= 1000;
+    }
+
+    if (active_substance_dose_decorator == "µg_kg") {
+        active_substance_dose_decorator /= 1000;
+    }
+
+    if (drug_concentration_decorator === "same") {
+        drug_concentration_decorator = active_substance_dose_decorator;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -151,7 +201,7 @@ function processOpenDrug(chosenDrugIndex) {
     }  else if (drug_concentration_decorator === "ml") {
         drug_concentration_decorator = "ml";
     } else if (drug_concentration_decorator === "same") {
-        drug_concentration_decorator = "same";
+        drug_concentration_decorator = active_substance_dose_decorator;
     } else if (drug_concentration_decorator === "mg_caps") {
         drug_concentration_decorator = "mg/caps";
     } else if (drug_concentration_decorator === "µg_ml") {
@@ -163,6 +213,9 @@ function processOpenDrug(chosenDrugIndex) {
 
     if (active_substance_dose_decorator == "mg_kg") {
         active_substance_dose_decorator = "mg/kg";
+    }
+    if (active_substance_dose_decorator == "g") {
+        active_substance_dose_decorator = "g";
     }
     if (active_substance_dose_decorator == "µg_kg") {
         active_substance_dose_decorator = "µg/kg";
@@ -214,9 +267,6 @@ function processOpenDrug(chosenDrugIndex) {
     }
     if (active_substance_dose_decorator == "sprays") {
         active_substance_dose_decorator = "sprays";
-    }
-    if (active_substance_dose_decorator == "same") {
-        active_substance_dose_decorator = "same";
     }
     if (active_substance_dose_decorator == "малко количество") {
         active_substance_dose_decorator = "малко количество";
