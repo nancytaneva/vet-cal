@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vet Cal</title>
 </head>
+
 <body>
-    <div></div>
+
+    
     <form>
         <label for=”weight-input”>Тегло</label>
         <input name=”weight-input” type="number" min="0" max="200" placeholder=”0”>
-        кг
+        <select id="”weight-input-unit">мерна единица
+            <option value="gram">грамa</option>
+            <option value="kilogram">килограмa</option>
+        </select>
     </form>
     
     <div>
@@ -27,12 +32,17 @@
 
     </div>
 
-
     <button class="calculate-btn">Изчисли</button>
+
+    <div id="calculated-dose">
+
+    </div>
 
 
 
     <script src="./drug.collection.js"></script>
     <script src="./searchdrug.component.js"></script>
+    <script src="./@action.js"></script>
+    <script src="./calculate-dose.js"></script>
 </body>
 </html>

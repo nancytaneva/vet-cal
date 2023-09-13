@@ -110,7 +110,7 @@ const drugCollection = [
       "title": "Ондансетрон Акорд",
       "activeSubstance": "ондансетрон",
       "drugConcentration": 2,
-      "drugConcentrationDecorator": "mg_kg",
+      "drugConcentrationDecorator": "mg_ml",
       "application": {
         "any": {
           "activeSubstanceDose": [
@@ -126,7 +126,7 @@ const drugCollection = [
       "title": "Нолпаза 40 мг/4 мл",
       "activeSubstance": "пантопразол",
       "drugConcentration": 10,
-      "drugConcentrationDecorator": "mg_kg",
+      "drugConcentrationDecorator": "mg_ml",
       "application": {
         "dog": {
           "activeSubstanceDose": [
