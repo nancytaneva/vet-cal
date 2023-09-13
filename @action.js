@@ -156,7 +156,6 @@ function processOpenDrug(chosenDrugIndex) {
     //    - mg_kg;
 
 
-
     if (active_substance_dose_decorator == "g") {
         active_substance_dose_decorator *= 1000;
     }
@@ -171,11 +170,19 @@ function processOpenDrug(chosenDrugIndex) {
 
 
 
+    let lowest_dose;
+    let highest_dose;
+    let dose;
 
+    if (active_substance_dose.length === 2) {
+        // Calculate both doses when there are two values in activeSubstanceDose.
+        lowest_dose  = active_substance_dose[0] / parseInt(drug_concentration);
+        highest_dose = active_substance_dose[1] / parseInt(drug_concentration);
 
-
-
-
+    } else if (active_substance_dose.length === 1) {
+        // Calculate one dose when there is only one value in activeSubstanceDose.
+        dose = active_substance_dose[0] / parseInt(drug_concentration);
+    }
 
 
 
@@ -193,6 +200,31 @@ function processOpenDrug(chosenDrugIndex) {
 
 
     // CREATING DIV FOR THE DRUG:
+    let active_substance_needed_decorator;
+    let dose_needed_decorator;
+
+
+    if (drug_concentration_decorator === "mg_ml") {
+        active_substance_needed_decorator = "ml";
+        dose_needed_decorator = "ml";
+    }
+    if (drug_concentration_decorator === "µg_ml") {
+        active_substance_needed_decorator = "ml";
+        dose_needed_decorator = "ml";
+    }
+    if (drug_concentration_decorator === "ml") {
+        active_substance_needed_decorator = "ml";
+        dose_needed_decorator = "ml";
+    }
+    if (drug_concentration_decorator === "mg_tabl") {
+        active_substance_needed_decorator = "tabl";
+        dose_needed_decorator = "tabl";
+    }
+    if (drug_concentration_decorator === "mg_caps") {
+        active_substance_needed_decorator = "caps";
+        dose_needed_decorator = "caps";
+    }
+    
     // Convert decorators:
     if (drug_concentration_decorator === "mg_ml") {
         drug_concentration_decorator = "mg/ml";
@@ -292,8 +324,8 @@ function processOpenDrug(chosenDrugIndex) {
     </div>
 
     <div id="div-calculated-doses">
-        <div id="div-drug-needed-as">200 mg</div>
-        <div id="div-drug-needed-med">2 tabl</div>
+        <div id="div-drug-needed-as">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_needed_decorator}</div>
+        <div id="div-drug-needed-med">${lowest_dose} - ${highest_dose} ${dose_needed_decorator}</div>
     </div>
     <div id="div-drug-appl">
         <div>Как се поставя:</div>
