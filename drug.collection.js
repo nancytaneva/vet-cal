@@ -2220,7 +2220,7 @@ const drugCollection = [
             6,
             12
           ],
-          "activeSubstanceDoseDecorator": "µg/kg",
+          "activeSubstanceDoseDecorator": "µg_kg",
           "applicationMethod": "PO, веднъж месечно"
         }
       }
@@ -2294,14 +2294,14 @@ const drugCollection = [
             0.5,
             2
           ],
-          "activeSubstanceDoseDecorator": "мl",
+          "activeSubstanceDoseDecorator": "ml",
           "applicationMethod": "ИВ или ИМ"
         },
         "cat": {
           "activeSubstanceDose": [
             0.5
           ],
-          "activeSubstanceDoseDecorator": "мl",
+          "activeSubstanceDoseDecorator": "ml",
           "applicationMethod": "ИВ или ИМ"
         }
       }
