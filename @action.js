@@ -116,14 +116,14 @@ function processOpenDrug(chosenDrugIndex) {
 
     if (active_substance_dose.length === 2) {
         // Calculate both doses when there are two values in activeSubstanceDose.
-        const as_lowest_dose  = active_substance_dose[0] * parseInt(petWeight);
-        const as_highest_dose = active_substance_dose[1] * parseInt(petWeight);
+        const as_lowest_dose  = Math.round((active_substance_dose[0] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
+        const as_highest_dose = Math.round((active_substance_dose[1] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
         active_substance_needed.push(as_lowest_dose, as_highest_dose);
         active_substance_needed_string = `Dose 1: ${as_lowest_dose} Dose 2: ${as_highest_dose}`;
 
     } else if (active_substance_dose.length === 1) {
         // Calculate one dose when there is only one value in activeSubstanceDose.
-        const as_dose = active_substance_dose[0] * parseInt(petWeight);
+        const as_dose = Math.round((active_substance_dose[0] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
         active_substance_needed.push(as_dose);
         active_substance_needed_string = `Dose: ${as_dose}`;
 
@@ -176,12 +176,12 @@ function processOpenDrug(chosenDrugIndex) {
 
     if (active_substance_dose.length === 2) {
         // Calculate both doses when there are two values in activeSubstanceDose.
-        lowest_dose  = active_substance_dose[0] / parseInt(drug_concentration);
-        highest_dose = active_substance_dose[1] / parseInt(drug_concentration);
+        lowest_dose  = Math.round((active_substance_needed[0] / parseFloat(drug_concentration) + Number.EPSILON)*100) / 100;
+        highest_dose = Math.round((active_substance_needed[1] / parseFloat(drug_concentration) + Number.EPSILON)*100) / 100;
 
     } else if (active_substance_dose.length === 1) {
         // Calculate one dose when there is only one value in activeSubstanceDose.
-        dose = active_substance_dose[0] / parseInt(drug_concentration);
+        dose = Math.round((active_substance_needed / parseFloat(drug_concentration) + Number.EPSILON)*100) / 100;
     }
 
 
@@ -314,26 +314,51 @@ function processOpenDrug(chosenDrugIndex) {
     }
 
 
-    calculatedDoseDiv.innerHTML =`
-    <div class="div-drug-calculated">
-    <div class="fw800">${drugCollection[chosenDrugIndex].title}</div>
-    <div>
-        <span id="div-active-substance">${active_substance}</span>
-        <span>,</span>
-        <span id="div-active-substance-dose">${active_substance_dose} ${active_substance_dose_decorator}</span>
-    </div>
 
-    <div id="div-calculated-doses">
-        <div id="div-drug-needed-as">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_needed_decorator}</div>
-        <div id="div-drug-needed-med">${lowest_dose} - ${highest_dose} ${dose_needed_decorator}</div>
-    </div>
-    <div id="div-drug-appl">
-        <div>Как се поставя:</div>
-        <div id="div-drug-application">${application_method}</div>
-    </div>
-</div>
-    `;
 
+
+    if (active_substance_dose.length === 2) {
+        calculatedDoseDiv.innerHTML =`
+        <div class="div-drug-calculated">
+        <div class="fw800">${drugCollection[chosenDrugIndex].title}</div>
+        <div>
+            <span id="div-active-substance">${active_substance}</span>
+            <span>,</span>
+            <span id="div-active-substance-dose">${as_lowest_dose} - ${as_highest_dose} ${active_substance_dose_decorator}</span>
+        </div>
+    
+        <div id="div-calculated-doses">
+            <div id="div-drug-needed-as">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_needed_decorator}</div>
+            <div id="div-drug-needed-med">${lowest_dose} - ${highest_dose} ${dose_needed_decorator}</div>
+        </div>
+        <div id="div-drug-appl">
+            <div>Как се поставя:</div>
+            <div id="div-drug-application">${application_method}</div>
+        </div>
+    </div>
+        `;
+
+    } else if (active_substance_dose.length === 1) {
+        calculatedDoseDiv.innerHTML =`
+        <div class="div-drug-calculated">
+        <div class="fw800">${drugCollection[chosenDrugIndex].title}</div>
+        <div>
+            <span id="div-active-substance">${active_substance}</span>
+            <span>,</span>
+            <span id="div-active-substance-dose">${as_dose} ${active_substance_dose_decorator}</span>
+        </div>
+    
+        <div id="div-calculated-doses">
+            <div id="div-drug-needed-as">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_needed_decorator}</div>
+            <div id="div-drug-needed-med">${dose} ${dose_needed_decorator}</div>
+        </div>
+        <div id="div-drug-appl">
+            <div>Как се поставя:</div>
+            <div id="div-drug-application">${application_method}</div>
+        </div>
+    </div>
+        `;
+    }
 
 
 
