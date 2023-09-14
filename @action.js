@@ -113,17 +113,20 @@ function processOpenDrug(chosenDrugIndex) {
         //CALCULATING Active substance needed:
     const active_substance_needed = [];
     let active_substance_needed_string = '';
+    let as_lowest_dose;
+    let as_highest_dose;
+    let as_dose;
 
     if (active_substance_dose.length === 2) {
         // Calculate both doses when there are two values in activeSubstanceDose.
-        const as_lowest_dose  = Math.round((active_substance_dose[0] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
-        const as_highest_dose = Math.round((active_substance_dose[1] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
+        as_lowest_dose  = Math.round((active_substance_dose[0] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
+        as_highest_dose = Math.round((active_substance_dose[1] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
         active_substance_needed.push(as_lowest_dose, as_highest_dose);
         active_substance_needed_string = `Dose 1: ${as_lowest_dose} Dose 2: ${as_highest_dose}`;
 
     } else if (active_substance_dose.length === 1) {
         // Calculate one dose when there is only one value in activeSubstanceDose.
-        const as_dose = Math.round((active_substance_dose[0] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
+        as_dose = Math.round((active_substance_dose[0] * parseFloat(petWeight) + Number.EPSILON)*1000) / 1000;
         active_substance_needed.push(as_dose);
         active_substance_needed_string = `Dose: ${as_dose}`;
 
@@ -205,11 +208,11 @@ function processOpenDrug(chosenDrugIndex) {
 
 
     if (drug_concentration_decorator === "mg_ml") {
-        active_substance_needed_decorator = "ml";
+        active_substance_needed_decorator = "mg";
         dose_needed_decorator = "ml";
     }
     if (drug_concentration_decorator === "µg_ml") {
-        active_substance_needed_decorator = "ml";
+        active_substance_needed_decorator = "µg";
         dose_needed_decorator = "ml";
     }
     if (drug_concentration_decorator === "ml") {
@@ -217,11 +220,11 @@ function processOpenDrug(chosenDrugIndex) {
         dose_needed_decorator = "ml";
     }
     if (drug_concentration_decorator === "mg_tabl") {
-        active_substance_needed_decorator = "tabl";
+        active_substance_needed_decorator = "mg";
         dose_needed_decorator = "tabl";
     }
     if (drug_concentration_decorator === "mg_caps") {
-        active_substance_needed_decorator = "caps";
+        active_substance_needed_decorator = "mg";
         dose_needed_decorator = "caps";
     }
     
@@ -324,11 +327,11 @@ function processOpenDrug(chosenDrugIndex) {
         <div>
             <span id="div-active-substance">${active_substance}</span>
             <span>,</span>
-            <span id="div-active-substance-dose">${as_lowest_dose} - ${as_highest_dose} ${active_substance_dose_decorator}</span>
+            <span id="div-active-substance-dose">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_dose_decorator}</span>
         </div>
     
         <div id="div-calculated-doses">
-            <div id="div-drug-needed-as">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_needed_decorator}</div>
+            <div id="div-drug-needed-as">${active_substance_needed[0]} - ${active_substance_needed[1]} ${active_substance_needed_decorator}</div>
             <div id="div-drug-needed-med">${lowest_dose} - ${highest_dose} ${dose_needed_decorator}</div>
         </div>
         <div id="div-drug-appl">
@@ -345,11 +348,11 @@ function processOpenDrug(chosenDrugIndex) {
         <div>
             <span id="div-active-substance">${active_substance}</span>
             <span>,</span>
-            <span id="div-active-substance-dose">${as_dose} ${active_substance_dose_decorator}</span>
+            <span id="div-active-substance-dose">${active_substance_dose} ${active_substance_dose_decorator}</span>
         </div>
     
         <div id="div-calculated-doses">
-            <div id="div-drug-needed-as">${active_substance_dose[0]} - ${active_substance_dose[1]} ${active_substance_needed_decorator}</div>
+            <div id="div-drug-needed-as">${active_substance_needed} ${active_substance_needed_decorator}</div>
             <div id="div-drug-needed-med">${dose} ${dose_needed_decorator}</div>
         </div>
         <div id="div-drug-appl">

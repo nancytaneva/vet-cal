@@ -23,6 +23,61 @@
     background: #4b8ffa;
 }
 
+.insert-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px; 
+}
+
+#weight-input, #weight-input-unit, #searchDrug {
+    height: 45px;
+    padding: 8px;
+    color: rgba(0, 0, 0, 0.462);
+    border-radius: 3px;
+    border: 0.01px solid;
+}
+
+#weight-input {
+    width: calc(100% - 45% - 3px);
+}
+
+#weight-input-unit {
+    width: calc(45% - 10px);
+}
+
+#container--calculator label {
+    margin-right: auto;
+    padding-left: 10px;
+}
+
+.insert-info-box {
+    width: 65%;
+    margin-left: auto;
+}
+
+#searchDrug {
+    width: calc(100% - 10px);
+}
+
+#calculate-btn {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    height: 45px;
+    border-radius: 3px;
+    border: 0;
+    background: #d60b52;
+    width: calc(64.7% - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35.3%;
+}
+
+
+
+
 
 
 
