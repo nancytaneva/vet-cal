@@ -60,6 +60,23 @@
     width: calc(100% - 10px);
 }
 
+#searchDrug--dropdown {
+    position: absolute;
+    margin-top: -9px;
+    margin-left: 35.3%;
+    width: calc(64.7% - 20px);
+    display: flex;
+    flex-direction: column;
+    background: #cacaca;
+    line-height: 2rem;
+    z-index: 50;
+}
+
+#searchDrug--dropdown div {
+    padding: 6px;
+    border-bottom: 0.01px dotted rgb(0 0 0 / 30%);
+}
+
 #calculate-btn {
     font-size: 1rem;
     font-weight: 700;

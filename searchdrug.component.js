@@ -18,12 +18,12 @@ function populateDropdown(result) {
     }
   
     const findDrugCollection = drugCollection.filter((element) => {
-      return element.title.includes(searchDrugValue);
+      return element.title.toLowerCase().includes(searchDrugValue);
     })
 
     const collection = [];
     for (const menuItem of findDrugCollection) {
-        const index = drugCollection.findIndex((element) => element.title === menuItem.title);
+        const index = drugCollection.findIndex((element) => element.title.toLowerCase() === menuItem.title.toLowerCase());
         if (index !== -1) {
             collection.push(`<div onclick="processOpenDrug(${index})">${menuItem.title}</div>`);
         }
