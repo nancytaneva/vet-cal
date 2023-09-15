@@ -33,13 +33,14 @@
 #weight-input, #weight-input-unit, #searchDrug {
     height: 45px;
     padding: 8px;
-    color: rgba(0, 0, 0, 0.462);
     border-radius: 3px;
-    border: 0.01px solid;
+    border: 0.01px solid rgba(0, 0, 0, 0.462);
+    color: #000000;
 }
 
 #weight-input {
     width: calc(100% - 45% - 3px);
+    font-size: 1rem;
 }
 
 #weight-input-unit {
@@ -58,6 +59,7 @@
 
 #searchDrug {
     width: calc(100% - 10px);
+    font-size: 1rem;
 }
 
 #searchDrug--dropdown {
@@ -75,6 +77,7 @@
 #searchDrug--dropdown div {
     padding: 6px;
     border-bottom: 0.01px dotted rgb(0 0 0 / 30%);
+    color:#000000;
 }
 
 #calculate-btn {

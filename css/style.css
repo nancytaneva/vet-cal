@@ -221,7 +221,7 @@ header {
 #header-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   /* border-bottom: 7px solid var(--header-border-color); */
   border-top: 7px solid var(--header-border-color);
   background-color: var(--header-color);
