@@ -123,6 +123,22 @@ const drugCollection = [
     },
     {
       "type": "gastrointestinal",
+      "title": "Ондансетрон Акорд",
+      "activeSubstance": "ондансетрон",
+      "drugConcentration": 2,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            0.2
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "SC IV q12h"
+        }
+      }
+    },
+    {
+      "type": "gastrointestinal",
       "title": "Нолпаза 40 мг/4 мл",
       "activeSubstance": "пантопразол",
       "drugConcentration": 10,
@@ -1197,7 +1213,7 @@ const drugCollection = [
     {
       "type": "nervous",
       "title": "Бусколизин  1% 50 ml",
-      "activeSubstance": "Бусколизин",
+      "activeSubstance": "хиосцин бутилбромид",
       "drugConcentration": 10,
       "drugConcentrationDecorator": "mg_ml",
       "application": {
@@ -2770,6 +2786,203 @@ const drugCollection = [
           ],
           "activeSubstanceDoseDecorator": "tabl",
           "applicationMethod": "PO на куче"
+        }
+      }
+    },
+    {
+      "type": "gastrointestinal",
+      "title": "Церения 10 мг/мл",
+      "activeSubstance": "маропитант",
+      "drugConcentration": 10,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            1
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "SC IV q24h за 5 дни"
+        }
+      }
+    },
+    {
+      "type": "gastrointestinal",
+      "title": "Превомакс 10 мг/мл",
+      "activeSubstance": "маропитант",
+      "drugConcentration": 10,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            1
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "SC IV q24h за 5 дни"
+        }
+      }
+    },
+    {
+      "type": "gastrointestinal",
+      "title": "Деган 10 мг/ 2 мл",
+      "activeSubstance": "метоклопрамид",
+      "drugConcentration": 5,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            0.25, 0.5
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "IV q24h"
+        }
+      }
+    },
+    {
+      "type": "gastrointestinal",
+      "title": "Зофран 2 мг/ мл",
+      "activeSubstance": "ондансетрон",
+      "drugConcentration": 2,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            0.2
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "SC IV q12h"
+        }
+      }
+    },
+    {
+      "type": "gastrointestinal",
+      "title": "Анакет 100 мг/ мл",
+      "activeSubstance": "кетамин",
+      "drugConcentration": 2,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "dog": {
+          "activeSubstanceDose": [
+            40, 60
+          ],
+          "activeSubstanceDoseDecorator": "µg_kg",
+          "applicationMethod": "IM IV, след 10-20 мин - 2-4 мг/кг (в комб. с медетомидин)"
+        },
+        "cat": {
+          "activeSubstanceDose": [
+            10, 20
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "IM IV, след 10-20 мин - 5-7.5 мг/кг IM (самостоятелно)"
+        }
+      }
+    },
+    {
+      "type": "nervous",
+      "title": "Депогестон",
+      "activeSubstance": "медроксипрогестерон",
+      "drugConcentration": 50,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "dog": {
+          "activeSubstanceDose": [
+            1, 2
+          ],
+          "activeSubstanceDoseDecorator": "ml",
+          "applicationMethod": "SC IM"
+        },
+        "cat": {
+          "activeSubstanceDose": [
+            1
+          ],
+          "activeSubstanceDoseDecorator": "ml",
+          "applicationMethod": "SC"
+        }
+      }
+    },
+    {
+      "type": "others",
+      "title": "Селед",
+      "activeSubstance": "селен,вит Е, вит Д3",
+      "drugConcentration": 1,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "dog": {
+          "activeSubstanceDose": [
+            0.1
+          ],
+          "activeSubstanceDoseDecorator": "ml_kg",
+          "applicationMethod": "qd през първа седмица, после b.i.d. втора седмица, после един път седмично."
+        }
+      }
+    },
+    {
+      "type": "nervous",
+      "title": "Новокаин 1%",
+      "activeSubstance": "прокаин",
+      "drugConcentration": 10,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            1
+          ],
+          "activeSubstanceDoseDecorator": "ml",
+          "applicationMethod": "1 мл на куче при лумбална анестезия"
+        }
+      }
+    },
+    {
+      "type": "others",
+      "title": "Прокал инж.",
+      "activeSubstance": "калциев глюконат 350 мг/мл, калциев глюкохептонат 100 мг/мл",
+      "drugConcentration": 10,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "dog": {
+          "activeSubstanceDose": [
+            2, 10
+          ],
+          "activeSubstanceDoseDecorator": "ml",
+          "applicationMethod": "SC, IM или много бавно IV"
+        }
+      }
+    },
+    {
+      "type": "antibiotics",
+      "title": "Бетамокс ЛА инж.",
+      "activeSubstance": "амоксицилин",
+      "drugConcentration": 150,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "any": {
+          "activeSubstanceDose": [
+            15
+          ],
+          "activeSubstanceDoseDecorator": "mg_kg",
+          "applicationMethod": "SC, IM"
+        }
+      }
+    },
+    {
+      "type": "others",
+      "title": "Депедин Вейкс",
+      "activeSubstance": "преднизолон 7.5 мг/ мл, дексаметазон 2.5 мг/мл",
+      "drugConcentration": 150,
+      "drugConcentrationDecorator": "mg_ml",
+      "application": {
+        "dog": {
+          "activeSubstanceDose": [
+            0.5
+          ],
+          "activeSubstanceDoseDecorator": "ml",
+          "applicationMethod": "IM"
+        },
+        "cat": {
+          "activeSubstanceDose": [
+            0.3
+          ],
+          "activeSubstanceDoseDecorator": "ml",
+          "applicationMethod": "IM"
         }
       }
     }
