@@ -2985,5 +2985,28 @@ const drugCollection = [
           "applicationMethod": "IM"
         }
       }
-    }
+    },
+    {
+        "type": "nervous",
+        "title": "Седин",
+        "activeSubstance": "медетомидин",
+        "drugConcentration": 1,
+        "drugConcentrationDecorator": "mg_ml",
+        "application": {
+          "dog": {
+            "activeSubstanceDose": [
+              0.5
+            ],
+            "activeSubstanceDoseDecorator": "ml",
+            "applicationMethod": "IM"
+          },
+          "cat": {
+            "activeSubstanceDose": [
+              0.3
+            ],
+            "activeSubstanceDoseDecorator": "ml",
+            "applicationMethod": "IM"
+          }
+        }
+      }
   ]
